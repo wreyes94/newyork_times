@@ -1,10 +1,10 @@
 <!DOCTYPE>
 <html>
 <head>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -15,14 +15,14 @@
     </div>
     <div class="parameters">
         <label id="paramLabel"> Search Parameters</label>
-        <form>
+        <form id="formStyle">
             <div class="form-group">
                 <label>Search Term</label>
                 <input type="text" class="form-control" id="searchTerm" required>
             </div>
             <div class="form-group">
                 <label>Number of records to retrieve</label>
-                <select class="form-control" required>
+                <select class="form-control" id="records" required>
                     <option value=""></option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -38,7 +38,7 @@
                 <input type="text" class="form-control" id="endYear">
             </div>
 
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" id="submit" class="btn btn-primary">Search</button>
             <button class="btn btn-primary">Clear Results</button>
 
         </form>
@@ -53,5 +53,23 @@
     <br>
 
 </div>
+<script>
+    $(".submit").on("click", function() {
+        var searchVal = $("#searchTerm").val();
+        var recordTries = $("#records").val();
+        var start = $("#startYear").val();
+        var end = $("#endYear").val();
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+
+            var information = response;
+            $("#articles").text(information);
+        })
+    });
+</script>
+
 </body>
 </html>
