@@ -10,7 +10,8 @@
 }
 
 #paramLabel{
-    background-color: #4aaaa5;
+    background-color: navy;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 100%;
     height: 40px;
     color: white;
@@ -18,7 +19,8 @@
 }
 
 #articlesLabel{
-    background-color: #4aaaa5;
+    background-color: navy;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 100%;
     height: 40px;
     color: white;
@@ -27,4 +29,14 @@
 
 #formStyle{
     margin: 10px;
+}
+
+.parameters{
+    border-style: solid;
+    border-width: 2px;
+}
+.jumbotron{
+    background-color: navy;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
